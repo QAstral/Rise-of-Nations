@@ -406,16 +406,18 @@ focus_tree = {
 			        has_government = democratic
                     has_government = fascism
 				    has_government = communism } } 
-				add_ideas = { cw_monarchist_opposition } }
+				add_ideas = { cw_monarchist_opposition }
+            }
 			if = { limit = {
     		    has_government = neutrality }
-				add_ideas = { cw_monarchist_opposition1 }	}	
-			}
+				add_ideas = { cw_monarchist_opposition1 }
+            }
 			add_popularity = {
 				popularity = 0.10
 				ideology = neutrality
 			}
-		}
+        }
+    }
 
 	focus = {
 		id = cw_unite_the_people
@@ -892,14 +894,11 @@ focus_tree = {
 		prerequisite = { focus = cw_strenghen_democratic_spirit }
 		prerequisite = { focus = cw_seperation_of_powers }
 		completion_reward = {
-		completion_reward = {
 			add_popularity = {
 				popularity = 0.10
 				ideology = democratic
 			}
             remove_ideas { cw_democratic_workers }
-			
-			}
 		}
     }
 	
@@ -1838,7 +1837,7 @@ focus_tree = {
 		y = 15
 		cost = 3
 		prerequisite = { focus = cw_prepare_for_war }
-complete_effect = {
+        complete_effect = {
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -1869,10 +1868,10 @@ complete_effect = {
 					instant_build = yes
 				}
 			}
-		}
 		add_ideas = { cw_more_weapons }
 		}
-		
+    }
+
 	focus = {
 		id = cw_extend_training
 		icon = GFX_focus_usa_honor_the_confederacy
@@ -1929,17 +1928,14 @@ complete_effect = {
             }
 		}
 		completion_reward = {
-            add_equipment_to_stockpile = {
-                type = infantry_equipment
-                amount = -500
-			USA = add_equipment_to_stockpile = {
-                    type = infantry_equipment
-                    amount = 500
-			}
-		}
-	}
-}
-	
+            send_equipment = {
+                equipment = infantry_equipment
+                amount = 500
+                target = USA
+            }
+        }
+    }
+
 	focus = {
 		id = cw_sell_weapons_to_france
 		icon = GFX_goal_generic_small_arms
@@ -1954,17 +1950,14 @@ complete_effect = {
             }
 		}
 		completion_reward = {
-            add_equipment_to_stockpile = {
-                type = infantry_equipment
-                amount = -500
-			SOV = add_equipment_to_stockpile = {
-                    type = infantry_equipment
-                    amount = 500
-			}
+            send_equipment = {
+                equipment = infantry_equipment
+                amount = 500
+                target = SOV
+            }
 		}
 	}
-}
-		
+
 	focus = {
 		id = cw_sanction_france
 		icon = GFX_idea_closed_economy
@@ -2552,8 +2545,7 @@ complete_effect = {
 		cost = 3
 		prerequisite = { focus = cw_trust_in_free_market }
 		completion_reward = {
-            swap_ideas = { 
-		        remove_idea = cw_liberal_economy
+        remove_idea = cw_liberal_economy
 		random_owned_controlled_state = {
 			limit = {
 				free_building_slots = {
@@ -2614,7 +2606,6 @@ complete_effect = {
 				instant_build = yes
 			}
 		}
-		    }
 		}
 	}
 		
@@ -5121,9 +5112,9 @@ complete_effect = {
 		x = 87
 		y = 1
 		cost = 7
-		available = {
-			any_controlled_state_is_coastal = yes
-		}
+#TODO		available = {
+#TODO			any_controlled_state_is_coastal = yes
+#TODO		}
 		
 		prerequisite = { focus = cw_state_of_the_military }
 		completion_reward = {
@@ -5343,9 +5334,9 @@ complete_effect = {
 		prerequisite = { focus = cw_fleet_academy }
 		completion_reward = {
 			if = {
-			    limit = {
-				    any_controlled_state_is_coastal = yes
-			    }
+#TODO			    limit = {
+#TODO				    any_controlled_state_is_coastal = yes
+#TODO			    }
 			    random_owned_controlled_state = {
 				    limit = {
 					    free_building_slots = {
@@ -5514,9 +5505,9 @@ complete_effect = {
 		prerequisite = { focus = cw_marine_infantry }
 		completion_reward = {
 			if = {
-			    limit = {
-				    any_controlled_state_is_coastal = yes
-			    }
+#TODO			    limit = {
+#TODO				    any_controlled_state_is_coastal = yes
+#TODO			    }
 			    random_owned_controlled_state = {
 				    limit = {
 					    free_building_slots = {
@@ -5568,5 +5559,4 @@ complete_effect = {
 		    }
 		}
 	}
-	
-	}
+}

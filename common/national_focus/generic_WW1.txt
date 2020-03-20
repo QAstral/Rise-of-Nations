@@ -1,4 +1,4 @@
-focus_tree = {
+focus_tree = { 
 	id = ww1generic_focus
 	
 	country = {
@@ -756,14 +756,11 @@ focus_tree = {
 		prerequisite = { focus = ww1_strenghen_democratic_spirit }
 		prerequisite = { focus = ww1_seperation_of_powers }
 		completion_reward = {
-		completion_reward = {
 			add_popularity = {
 				popularity = 0.10
 				ideology = democratic
 			}
             remove_ideas { ww1_democratic_workers }
-			
-			}
 		}
     }
 	
@@ -1237,6 +1234,7 @@ focus_tree = {
 		y = 15
 		cost = 3
 		prerequisite = { focus = ww1_support_france }	
+		completion_reward = {
 			add_opinion_modifier = { 
 				target = GEE
 				modifier =  ww1_supports_enemy_politics
@@ -1245,7 +1243,8 @@ focus_tree = {
 				target = FRA
 				modifier =  ww1_supports_own_politics
 			}
-			}
+        }
+    }
 
 	focus = {
 		id = ww1_anti_german_propaganda
@@ -1380,26 +1379,20 @@ focus_tree = {
 		prerequisite = { focus = ww1_foreign_officers }
 		completion_reward = {
         if = { 
-		    limit = { 
-			    has_completed_focus = ww1_support_central_powers } 
-				add_equipment_to_stockpile = {
-                type = infantry_equipment
-                amount = -500 }
-			GEE = add_equipment_to_stockpile = {
-                    type = infantry_equipment
-                    amount = 500 } 
-		    }
-
-        if = { 
-		    limit = { 
-			    has_completed_focus = ww1_support_entente } 
-				add_equipment_to_stockpile = {
-                type = infantry_equipment
-                amount = -500 }
-			FRA = add_equipment_to_stockpile = {
-                    type = infantry_equipment
-                    amount = 500 } 
-		    }
+		    limit = { has_completed_focus = ww1_support_central_powers } 
+            send_equipment = {
+                equipment = infantry_equipment
+                amount = 500
+                target = GEE
+            }
+        }
+        if = {
+		    limit = { has_completed_focus = ww1_support_entente }
+            send_equipment = {
+                equipment = infantry_equipment
+                amount = 500
+                target = FRA
+            }
 		}
 	}
 		
@@ -1425,18 +1418,22 @@ focus_tree = {
                          focus = ww1_join_entente }
 		completion_reward = {
             add_ideas = { ww1_development_together }
-        if = { 
-		    limit = { 
-			    has_completed_focus = ww1_support_central_powers } 
-			GEE = add_ideas = { ww1_development_together }
+            if = { 
+                limit = { has_completed_focus = ww1_support_central_powers }
+                add_ideas = {
+                    target = GEE
+                    ww1_development_together
+                }
 		    }
-        if = { 
-		    limit = { 
-			    has_completed_focus = ww1_support_entente } 
-			FRA = add_ideas = { ww1_development_together }
+            if = { 
+                limit = { has_completed_focus = ww1_support_entente } 
+                add_ideas = {
+                    target = FRA
+                    ww1_development_together
+                }
 		    }
-		    }
-		}
+        }
+    }
 
 	focus = {
 		id = ww1_foreign_attache
@@ -1529,7 +1526,7 @@ focus_tree = {
 		y = 14
 		cost = 3
 		prerequisite = { focus = ww1_prepare_for_war }
-complete_effect = {
+        complete_effect = {
 			random_owned_controlled_state = {
 				limit = {
 					free_building_slots = {
@@ -1560,10 +1557,10 @@ complete_effect = {
 					instant_build = yes
 				}
 			}
-		}
 		add_ideas = { ww1_more_weapons }
 		}
-		
+    }
+
 	focus = {
 		id = ww1_extend_training
 		icon = GFX_focus_usa_honor_the_confederacy
@@ -1620,13 +1617,11 @@ complete_effect = {
             }
 		}
 		completion_reward = {
-            add_equipment_to_stockpile = {
-                type = infantry_equipment
-                amount = -500
-			GEE = add_equipment_to_stockpile = {
-                    type = infantry_equipment
-                    amount = 500
-			}
+            send_equipment = {
+                equipment = infantry_equipment
+                amount = 500
+                target = GEE
+            }
 		}
 	}
 }
@@ -1645,13 +1640,11 @@ complete_effect = {
             }
 		}
 		completion_reward = {
-            add_equipment_to_stockpile = {
-                type = infantry_equipment
-                amount = -500
-			FRA = add_equipment_to_stockpile = {
-                    type = infantry_equipment
-                    amount = 500
-			}
+            send_equipment = {
+                equipment = infantry_equipment
+                amount = 500
+                target = FRA
+            }
 		}
 	}
 }
@@ -1757,34 +1750,33 @@ complete_effect = {
 		x = 32
 		y = 14
 		cost = 3
-		prerequisite = { focus = ww1_deterrence }	
+		prerequisite = { focus = ww1_deterrence }
 		completion_reward = {
-        hidden_effect = {
-		every_owned_state = {
-    if = {
-        limit = {
-            any_neighbor_state = {
-                NOT = {
-                    is_owned_by = ROOT
+            hidden_effect = {
+                every_owned_state = {
+                    if = {
+                        limit = {
+                            any_neighbor_state = {
+                                NOT = {
+                                    is_owned_by = ROOT
+                                }
+                            }
+                        }
+                        set_building_level = {
+                            type = bunker
+                            level = 2
+                            province = {
+                                all_provinces = yes
+                                limit_to_border = yes
+                                level < 2
+                            }
+                        }
+                    }
                 }
             }
-        }
-        set_building_level = {
-            type = bunker
-            level = 2
-            province = {
-                all_provinces = yes
-                limit_to_border = yes
-                level < 2
-            }
-        }
-    }
-}
-}
-        custom_effect_tooltip = ww1_bunkers_built 
+            custom_effect_tooltip = ww1_bunkers_built 
 	    }
-			
-		}
+    }
 		
 	focus = {
 		id = ww1_why_we_fight
@@ -2721,9 +2713,13 @@ complete_effect = {
 				uses = 2
 				category = support_tech
 			}
-		add_equipment_to_stockpile = { type = support_equipment_1 amount = 250 producer = GRF }		
-			}
-		}
+            add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 250
+#TODO                producer = GRF
+            }
+        }
+    }
 
 	focus = {
 		id = ww1_endless_advance
@@ -2942,10 +2938,14 @@ complete_effect = {
 				uses = 2
 				category = support_tech
 			}
-		    add_equipment_to_stockpile = { type = support_equipment_1 amount = 250 producer = GRF }
-			}
-		}
-		
+		    add_equipment_to_stockpile = {
+                type = support_equipment_1
+                amount = 250
+#TODO                producer = GRF
+            }
+        }
+    }
+
 	focus = {
 		id = ww1_endless_defense
 		icon = GFX_focus_generic_coastal_fort
@@ -3145,7 +3145,7 @@ complete_effect = {
 		add_equipment_to_stockpile = { 
 		    type = fighter_equipment 
 		    amount = 50
-		    producer = ROOT
+#TODO		    producer = ROOT
 		}			
 			}
 		}
@@ -3160,13 +3160,13 @@ complete_effect = {
 		prerequisite = { focus = ww1_daring_pilots }
 		completion_reward = {
             air_experience = 25
-			}
 			add_tech_bonus = {
 				bonus = 1.0
 				uses = 2
 				category = air_doctrine
-			}  
-		}
+			}
+        }
+    }
 		
 	focus = {
 		id = ww1_build_airfields
@@ -3330,7 +3330,7 @@ complete_effect = {
 		add_equipment_to_stockpile = { 
 		    type = tac_bomber_equipment 
 		    amount = 25
-		    producer = ROOT
+#TODO		    producer = ROOT
 		}			
 			}
 		}
@@ -3873,4 +3873,5 @@ complete_effect = {
 		completion_reward = {
             add_ideas = { ww1_naval_academy }
 			}
-		}
+    }
+}
