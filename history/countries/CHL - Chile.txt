@@ -214,7 +214,8 @@ create_field_marshal = {
 	create_field_marshal = {
 		name = "Carlos Fuentes Rabe"
 		picture = "Carlos_Fuentes_Rabe.dds"
-		traits = { homeland_connoisseur }
+#TODO		traits = { homeland_connoisseur }
+        traits = { } #TODO
 		skill = 3
 	    attack_skill = 3
 	    defense_skill = 3
@@ -282,7 +283,7 @@ create_country_leader = {
 	ideology = liberalism
 	traits = { }
 }
-¨
+
 create_corps_commander = {
     name = "Carlos Prat"
     picture = "CW/carlos_prat.dds"

@@ -18,15 +18,15 @@ equipments = {
 		}
 		
 		ap_attack = 0
-		attack = 1
-		fire_range = 10
+#TODO		attack = 1
+#TODO		fire_range = 10
 		torpedo_attack = 0
 		carrier_size = 18
 		
 		anti_air_attack = 15
 		
 		armor_value = 2
-		evasion = 8
+#TODO		evasion = 8
 		
 		surface_detection = 10
 		sub_detection = 5
@@ -38,7 +38,7 @@ equipments = {
 		
 		max_strength = 250
 		
-		port_capacity_usage = 2
+#TODO		port_capacity_usage = 2
 
 		# (Describes combat behaviour - hidden stat)
 		offensive_weapons = no
@@ -67,15 +67,15 @@ equipments = {
 		priority = 70
 		
 		ap_attack = 0
-		attack = 1
-		fire_range = 10
+#TODO		attack = 1
+#TODO		fire_range = 10
 		torpedo_attack = 0
 		carrier_size = 24
 		
 		anti_air_attack = 22
 		
 		armor_value = 3
-		evasion = 10
+#TODO		evasion = 10
 		
 		surface_detection = 10
 		sub_detection = 5
@@ -87,7 +87,7 @@ equipments = {
 		
 		max_strength = 325
 		
-		port_capacity_usage = 2
+#TODO		port_capacity_usage = 2
 
 		build_cost_ic = 1800
 		resources = {

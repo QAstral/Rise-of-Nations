@@ -247,7 +247,9 @@ ideas = {
 			removal_cost = -1
 
 			allowed_civil_war = {
-				has_government_nationalist = yes
+				has_government = {
+                    nationalist = yes
+                }
 			}
 
 			modifier = {

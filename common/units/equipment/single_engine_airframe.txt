@@ -677,7 +677,7 @@ equipments = {
 		year = 1936
 
 		archetype = CAS_equipment
-		parent = early_CAS_equipment_2
+#TODO		parent = early_CAS_equipment_2
 		priority = 40
 
 		air_range = 700
@@ -821,7 +821,7 @@ equipments = {
 		year = 1936
 
 		archetype = nav_bomber_equipment
-		parent = early_naval_bomber_2
+#TODO		parent = early_naval_bomber_2
 		priority = 60
 
 		air_range = 850
