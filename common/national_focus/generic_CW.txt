@@ -4017,8 +4017,6 @@ complete_effect = {
 		prerequisite = { focus = cw_control_the_skies
 						 focus = cw_operational_integrity
 						 focus = cw_bomb_them_down }
-		mutually_exclusive = { focus = cw_control_the_skies }
-		mutually_exclusive = { focus = cw_operational_integrity }
 		completion_reward = {
 			add_equipment_to_stockpile = { 
 				type = fighter_equipment 
@@ -4278,8 +4276,6 @@ complete_effect = {
 		prerequisite = { focus = cw_control_the_skies
 						 focus = cw_operational_integrity
 						 focus = cw_bomb_them_down }
-		mutually_exclusive = { focus = cw_control_the_skies }
-		mutually_exclusive = { focus = cw_operational_integrity }
 		completion_reward = {
 			add_equipment_to_stockpile = { 
 				type = tac_bomber_equipment   
